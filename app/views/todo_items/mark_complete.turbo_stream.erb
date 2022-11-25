@@ -1,0 +1,15 @@
+<%= turbo_stream.update @todo_item do  %>
+ <%= render "todo_item",item: @todo_item %>
+<% end %>
+
+<%= turbo_stream.update "todo_progress" do %>
+<h2><%= @todo_item.todo.title.capitalize %>  
+<span class="badge badge-<%= @todo_item.todo.badge_color %>" ><%=@todo_item.todo.status %></span>
+</h2>
+
+<p class='text-secondary m-0'><small><%= @todo_item.todo.percent_complete %>% Complete (<%= @todo_item.todo.completed_items %>/<%= @todo_item.todo.total_items %> Todo Items)</small></p>
+
+<div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: <%= @todo_item.todo.percent_complete %>%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<% end %>

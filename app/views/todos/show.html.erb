@@ -1,0 +1,27 @@
+<%= turbo_frame_tag "todo_progress" do %>
+<h2><%= @todo.title.capitalize %>  
+<span class="badge badge-<%= @todo.badge_color %>" ><%= @todo.status %></span>
+</h2>
+
+<p class='text-secondary m-0'><small><%= @todo.percent_complete %>% Complete (<%= @todo.completed_items %>/<%= @todo.total_items %> Todo Items)</small></p>
+
+<div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: <%= @todo.percent_complete %>%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<% end %>
+
+<div> 
+  <%= form_with url:todo_todo_items_path(@todo),id:"item_form",data: {turbo: true} do |f| %>
+    <%= f.text_field :description, placeholder:"Add a new todo item" %> 
+    <%= f.submit "Add" , class:"btn btn-primary" %>
+  <% end %>
+</div>
+
+<h3>Todo Item List: </h3>
+<ul >
+  <% @todo.todo_items.each do |item|  %>
+  <div id="todo_item" %>
+    <%= render "todo_items/todo_item", item: item %>
+  </div>
+ <% end %>
+</ul>

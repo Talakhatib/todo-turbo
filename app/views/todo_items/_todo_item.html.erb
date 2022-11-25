@@ -1,0 +1,21 @@
+<%= turbo_frame_tag item do %>
+ <% if item.completed %>
+    <li>
+      <span><%= item.description %></span> 
+      <span><%= button_to "", incomplete_todo_item_path(item) ,class:"btn btn-info fa fa-undo" %></span>
+      <br>
+      <span><%= button_to "", item ,class:"btn btn-danger fa fa-times",method: :delete %>
+      </span>
+    </li>
+    <br>
+  <% else %>
+    <li>
+     <span><%= item.description %></span> 
+     <span><%= button_to "", complete_todo_item_path(item) , class:"btn btn-success fa fa-check" %></span>
+     <br>
+     <span><%= button_to "", item , class:"btn btn-danger fa fa-times",method: :delete %>
+     </span>
+    </li>
+    <br>
+<% end %>
+<% end %>

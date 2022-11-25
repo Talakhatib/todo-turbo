@@ -1,0 +1,14 @@
+
+<div>
+<%= turbo_frame_tag todo do %>
+  <h3><%= link_to todo.title.capitalize,todo,data: {turbo_frame: "_top"} , class:"btn btn-primary" %>  <span class="badge badge-<%= todo.badge_color %>" ><%= todo.status %></span></h3>
+<p class='text-secondary m-0'><small><%= todo.percent_complete %>% Complete (<%= todo.completed_items %>/<%= todo.total_items %> Todo Items)</small></p>
+
+<div class="progress">
+  <div class="progress-bar" role="progressbar" style="width: <%= todo.percent_complete %>%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+  <%= link_to "Edit Todo list",edit_todo_path(todo), class:"badge badge-secondary" %><br><br> 
+  <%= button_to "delete", todo, method: :delete, class:"btn btn-danger" %>
+<% end %>
+</div>
+<hr>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TodoTurbo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <div class="container">
+   <header class="navbar navbar-fixed-top navbar-inverse">
+   <%= link_to "Home" ,root_path,id:"logo" %>
+   <div class="container">
+   <% if user_signed_in? %>
+    <nav>
+       <ul class="nav navbar-nav navbar-right">
+         <li><%= link_to "My list",todos_path %></li>
+         <li><%= button_to "logout", destroy_user_session_path , method: :delete,id:"logout-button" %></li>
+       </ul>
+      </nav>
+   <% else %>
+     <nav>
+       <ul class="nav navbar-nav navbar-right">
+         <li><%= link_to "Login" ,new_user_session_path %></li>
+         <li><%= link_to "Sign up", new_user_registration_path %></li>
+       </ul>
+      </nav>
+     <% end %>
+    </div>
+  </header>
+    <% flash.each do |message_type, message| %>
+         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

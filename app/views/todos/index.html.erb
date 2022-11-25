@@ -1,0 +1,11 @@
+
+<div class="mx-auto w-1/2">
+  <h2 class="text-2xl text-gray-900">New todo </h2>  
+  <%= turbo_frame_tag "new_todo" do %>
+   <%= link_to "Add new todo list",new_todo_path, class:"btn btn-info" %>
+   <% end %>
+   <h2>Todo List:</h2>
+    <div id="todos">
+      <%= render @todos %>
+    </div>
+</div>

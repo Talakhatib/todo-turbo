@@ -7,7 +7,7 @@
 <div class="progress">
   <div class="progress-bar" role="progressbar" style="width: <%= todo.percent_complete %>%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 </div>
-  <%= link_to "Edit Todo list",edit_todo_path(todo), class:"badge badge-secondary" %><br><br> 
+  <%= link_to "Edit Todo list",edit_todo_path(todo), class:"btn btn-success" %><br><br> 
   <%= button_to "delete", todo, method: :delete, class:"btn btn-danger" %>
 <% end %>
 </div>

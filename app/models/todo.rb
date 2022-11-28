@@ -31,9 +31,9 @@ class Todo < ApplicationRecord
     def badge_color 
         case percent_complete.to_i
         when 0
-            'dark'
+            'danger'
         when 100 
-            'info'
+            'success'
         else
             'primary'
         end

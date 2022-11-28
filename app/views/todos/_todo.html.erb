@@ -1,7 +1,7 @@
 
 <div>
 <%= turbo_frame_tag todo do %>
-  <h3><%= link_to todo.title.capitalize,todo,data: {turbo_frame: "_top"} , class:"btn btn-primary" %>  <span class="badge badge-<%= todo.badge_color %>" ><%= todo.status %></span></h3>
+  <h3><%= link_to todo.title.capitalize,todo,data: {turbo: true} , class:"btn btn-primary" %>  <span class="badge bg-<%= todo.badge_color %> " ><%= todo.status %></span></h3>
 <p class='text-secondary m-0'><small><%= todo.percent_complete %>% Complete (<%= todo.completed_items %>/<%= todo.total_items %> Todo Items)</small></p>
 
 <div class="progress">

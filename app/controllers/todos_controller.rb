@@ -5,7 +5,7 @@ class TodosController < ApplicationController
     end
 
     def index
-        @todos=Todo.all
+        @todos=Todo.find_by(user_id: current_user.id)
     end
     def new
         @todo = Todo.new

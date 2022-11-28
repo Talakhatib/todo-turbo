@@ -1,7 +1,7 @@
 <span><%= link_to " Back to TodoList ",todos_path,data: {turbo: true} , class:"btn btn-primary" %></span>
 <%= turbo_frame_tag "todo_progress" do %>
 <h2><%= @todo.title.capitalize %>  
-<span class="badge bg-<%= @todo.badge_color %> " ><%= @todo.status %></span>
+<span class="btn btn-<%= @todo.badge_color %> " ><%= @todo.status %></span>
 </h2> 
 
 <p class='text-secondary m-0'><small><%= @todo.percent_complete %>% Complete (<%= @todo.completed_items %>/<%= @todo.total_items %> Todo Items)</small></p>

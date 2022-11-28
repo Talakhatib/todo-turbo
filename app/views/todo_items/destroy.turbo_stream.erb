@@ -2,7 +2,7 @@
 
 <%= turbo_stream.update "todo_progress" do %>
 <h2><%= @todo_item.todo.title.capitalize %>  
-<span class="badge bg-<%= @todo_item.todo.badge_color %> " ><%=@todo_item.todo.status %></span>
+<span class="btn btn-<%= @todo_item.todo.badge_color %> " ><%=@todo_item.todo.status %></span>
 </h2>
 
 <p class='text-secondary m-0'><small><%= @todo_item.todo.percent_complete %>% Complete (<%= @todo_item.todo.completed_items %>/<%= @todo_item.todo.total_items %> Todo Items)</small></p>
